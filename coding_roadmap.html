@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coding Re-Learn Roadmap 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0f0f1a;
+    color: #e2e8f0;
+    min-height: 100vh;
+    padding: 24px 16px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  header { text-align: center; margin-bottom: 32px; }
+  header h1 { font-size: 26px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+  header h1 span { color: #818cf8; }
+  header p { font-size: 14px; color: #94a3b8; margin-top: 6px; }
+
+  .progress-bar-outer {
+    background: #1e1e3a; border-radius: 99px; height: 8px; margin: 16px 0 28px;
+    overflow: hidden;
+  }
+  .progress-bar-inner {
+    height: 100%; border-radius: 99px;
+    background: linear-gradient(90deg, #6366f1, #ec4899);
+    width: 0%; transition: width 0.6s ease;
+  }
+  .progress-label { font-size: 12px; color: #64748b; text-align: right; margin-top: -20px; margin-bottom: 20px; }
+
+  .phases { display: flex; flex-direction: column; gap: 14px; }
+
+  .phase {
+    border-radius: 14px;
+    border: 1.5px solid rgba(255,255,255,0.08);
+    background: #161628;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .phase:hover { border-color: rgba(255,255,255,0.18); box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
+  .phase.open { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+
+  .phase-header {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 18px; cursor: pointer; user-select: none;
+  }
+  .phase-num {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 15px; color: white; flex-shrink: 0;
+    box-shadow: 0 0 12px var(--accent-glow);
+  }
+  .phase-info { flex: 1; }
+  .phase-title { font-weight: 700; font-size: 15px; color: #f1f5f9; }
+  .phase-meta { font-size: 12px; color: #64748b; margin-top: 2px; }
+  .phase-status {
+    font-size: 11px; padding: 3px 10px; border-radius: 99px;
+    background: rgba(255,255,255,0.05); color: #64748b;
+    border: 1px solid rgba(255,255,255,0.08);
+    white-space: nowrap;
+  }
+  .phase.active .phase-status { background: rgba(99,102,241,0.15); color: #818cf8; border-color: rgba(99,102,241,0.3); }
+  .phase.done .phase-status { background: rgba(16,185,129,0.15); color: #34d399; border-color: rgba(16,185,129,0.3); }
+
+  .chevron { color: #475569; font-size: 11px; transition: transform 0.25s; margin-left: 6px; }
+  .phase.open .chevron { transform: rotate(180deg); color: #818cf8; }
+
+  .phase-body { display: none; padding: 0 18px 16px 68px; }
+  .phase.open .phase-body { display: block; }
+
+  .lessons { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
+  .lesson {
+    font-size: 12px; padding: 5px 12px; border-radius: 99px;
+    background: rgba(255,255,255,0.05); color: #94a3b8;
+    border: 1px solid rgba(255,255,255,0.08);
+    cursor: pointer; transition: all 0.15s;
+  }
+  .lesson:hover { background: rgba(255,255,255,0.1); color: #e2e8f0; }
+  .lesson.done { background: rgba(16,185,129,0.12); color: #34d399; border-color: rgba(16,185,129,0.25); text-decoration: line-through; }
+
+  .milestone {
+    background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2);
+    border-radius: 10px; padding: 10px 14px; font-size: 13px; color: #a5b4fc;
+    line-height: 1.5;
+  }
+  .milestone strong { color: #818cf8; display: block; margin-bottom: 3px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  .bottom-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
+  @media (max-width: 520px) { .bottom-cards { grid-template-columns: 1fr; } }
+
+  .card {
+    background: #161628; border: 1.5px solid rgba(255,255,255,0.08);
+    border-radius: 14px; padding: 16px;
+  }
+  .card h3 { font-size: 13px; font-weight: 700; color: #e2e8f0; margin-bottom: 8px; }
+  .card p, .card li { font-size: 12px; color: #94a3b8; line-height: 1.6; }
+  .card ul { list-style: none; }
+  .card ul li::before { content: '→ '; color: #6366f1; }
+
+  .model-badge {
+    display: inline-block; background: rgba(99,102,241,0.15);
+    color: #818cf8; font-size: 12px; font-weight: 700;
+    padding: 3px 10px; border-radius: 99px; border: 1px solid rgba(99,102,241,0.3);
+    margin-bottom: 6px;
+  }
+
+  /* Phase accent colors */
+  .p1 { --accent: #6366f1; --accent-glow: rgba(99,102,241,0.4); }
+  .p2 { --accent: #0ea5e9; --accent-glow: rgba(14,165,233,0.4); }
+  .p3 { --accent: #10b981; --accent-glow: rgba(16,185,129,0.4); }
+  .p4 { --accent: #f59e0b; --accent-glow: rgba(245,158,11,0.4); }
+  .p5 { --accent: #ec4899; --accent-glow: rgba(236,72,153,0.4); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>🎯 Coding <span>Re-Learn</span> Roadmap</h1>
+    <p>5 phases · ~60 days · CS grad of '88 returns to the arena</p>
+  </header>
+
+  <div class="progress-bar-outer">
+    <div class="progress-bar-inner" id="progressBar"></div>
+  </div>
+  <div class="progress-label" id="progressLabel">0% complete — click lessons to track progress</div>
+
+  <div class="phases">
+
+    <div class="phase p1 open" id="phase1">
+      <div class="phase-header" onclick="togglePhase('phase1')">
+        <div class="phase-num">1</div>
+        <div class="phase-info">
+          <div class="phase-title">Environment & Mindset Reset</div>
+          <div class="phase-meta">Days 1–7 · Your dev command center</div>
+        </div>
+        <div class="phase-status complete">Complete</div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="phase-body">
+        <div class="lessons" id="lessons1">
+          <span class="lesson" onclick="toggleLesson(this)">VS Code setup</span>
+          <span class="lesson" onclick="toggleLesson(this)">Git install</span>
+          <span class="lesson" onclick="toggleLesson(this)">GitHub account</span>
+          <span class="lesson" onclick="toggleLesson(this)">Terminal basics</span>
+          <span class="lesson" onclick="toggleLesson(this)">Python install</span>
+          <span class="lesson" onclick="toggleLesson(this)">First commit & push</span>
+          <span class="lesson" onclick="toggleLesson(this)">Claude Project setup</span>
+        </div>
+        <div class="milestone">
+          <strong>🏁 Milestone</strong>
+          Your first repo on GitHub with a README. You understand the edit → stage → commit → push cycle cold.
+        </div>
+      </div>
+    </div>
+
+    <div class="phase p2" id="phase2">
+      <div class="phase-header" onclick="togglePhase('phase2')">
+        <div class="phase-num">2</div>
+        <div class="phase-info">
+          <div class="phase-title">Python Fundamentals — Your New C</div>
+          <div class="phase-meta">Days 8–21 · Reactivating your CS brain</div>
+        </div>
+        <div class="phase-status active">Active</div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="phase-body">
+        <div class="lessons" id="lessons2">
+          <span class="lesson" onclick="toggleLesson(this)">Variables & types</span>
+          <span class="lesson" onclick="toggleLesson(this)">Functions</span>
+          <span class="lesson" onclick="toggleLesson(this)">Lists & dicts</span>
+          <span class="lesson" onclick="toggleLesson(this)">Loops & conditionals</span>
+          <span class="lesson" onclick="toggleLesson(this)">Classes & objects</span>
+          <span class="lesson" onclick="toggleLesson(this)">File I/O</span>
+          <span class="lesson" onclick="toggleLesson(this)">pip & packages</span>
+          <span class="lesson" onclick="toggleLesson(this)">Error handling</span>
+        </div>
+        <div class="milestone">
+          <strong>🏁 Milestone</strong>
+          A working CLI progress tracker for this learning journey — your first real utility, written by you.
+        </div>
+      </div>
+    </div>
+
+    <div class="phase p3" id="phase3">
+      <div class="phase-header" onclick="togglePhase('phase3')">
+        <div class="phase-num">3</div>
+        <div class="phase-info">
+          <div class="phase-title">The Web Layer — HTML, CSS & APIs</div>
+          <div class="phase-meta">Days 22–35 · Making things people can see</div>
+        </div>
+        <div class="phase-status">Upcoming</div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="phase-body">
+        <div class="lessons" id="lessons3">
+          <span class="lesson" onclick="toggleLesson(this)">HTML structure</span>
+          <span class="lesson" onclick="toggleLesson(this)">CSS basics</span>
+          <span class="lesson" onclick="toggleLesson(this)">HTTP & REST concepts</span>
+          <span class="lesson" onclick="toggleLesson(this)">Python requests lib</span>
+          <span class="lesson" onclick="toggleLesson(this)">JSON fluency</span>
+          <span class="lesson" onclick="toggleLesson(this)">Flask mini-app</span>
+          <span class="lesson" onclick="toggleLesson(this)">Calling public APIs</span>
+        </div>
+        <div class="milestone">
+          <strong>🏁 Milestone</strong>
+          A simple web page that fetches and displays live data from a real API — deployed and shareable via URL.
+        </div>
+      </div>
+    </div>
+
+    <div class="phase p4" id="phase4">
+      <div class="phase-header" onclick="togglePhase('phase4')">
+        <div class="phase-num">4</div>
+        <div class="phase-info">
+          <div class="phase-title">AI Integration & the Claude API</div>
+          <div class="phase-meta">Days 36–50 · Where sales experience becomes a superpower</div>
+        </div>
+        <div class="phase-status">Upcoming</div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="phase-body">
+        <div class="lessons" id="lessons4">
+          <span class="lesson" onclick="toggleLesson(this)">Anthropic Python SDK</span>
+          <span class="lesson" onclick="toggleLesson(this)">Prompt engineering</span>
+          <span class="lesson" onclick="toggleLesson(this)">System prompts</span>
+          <span class="lesson" onclick="toggleLesson(this)">Multi-turn conversations</span>
+          <span class="lesson" onclick="toggleLesson(this)">Tool use / function calling</span>
+          <span class="lesson" onclick="toggleLesson(this)">Streaming responses</span>
+        </div>
+        <div class="milestone">
+          <strong>🏁 Milestone</strong>
+          A custom AI-powered sales tool — prospect research assistant, call prep bot, or meeting summarizer.
+        </div>
+      </div>
+    </div>
+
+    <div class="phase p5" id="phase5">
+      <div class="phase-header" onclick="togglePhase('phase5')">
+        <div class="phase-num">5</div>
+        <div class="phase-info">
+          <div class="phase-title">Claude Code, Agents & the Full Stack</div>
+          <div class="phase-meta">Days 51–60+ · The sausage factory, fully visible</div>
+        </div>
+        <div class="phase-status">Upcoming</div>
+        <div class="chevron">▼</div>
+      </div>
+      <div class="phase-body">
+        <div class="lessons" id="lessons5">
+          <span class="lesson" onclick="toggleLesson(this)">Claude Code CLI</span>
+          <span class="lesson" onclick="toggleLesson(this)">Agentic workflows</span>
+          <span class="lesson" onclick="toggleLesson(this)">MCP servers</span>
+          <span class="lesson" onclick="toggleLesson(this)">Multi-agent patterns</span>
+          <span class="lesson" onclick="toggleLesson(this)">Git branching & PRs</span>
+          <span class="lesson" onclick="toggleLesson(this)">Deploy to cloud</span>
+        </div>
+        <div class="milestone">
+          <strong>🏁 Milestone</strong>
+          An agent that automates a real sales workflow end-to-end: research → draft outreach → log to CRM.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bottom-cards">
+    <div class="card">
+      <h3>🤖 Model Recommendation</h3>
+      <div class="model-badge">Sonnet 4.6 — Daily Driver</div>
+      <p>Fast, smart, efficient for all lessons and coding help. Switch to <strong style="color:#e2e8f0">Opus 4.6</strong> only for genuinely hard architectural questions or design reviews.</p>
+    </div>
+    <div class="card">
+      <h3>📁 Claude Project Setup</h3>
+      <ul>
+        <li>Create Project: "Code ReLearn 2026"</li>
+        <li>Add your background in Project Instructions</li>
+        <li>Upload notes & code as you build them</li>
+        <li>All sessions share the same context</li>
+        <li>No re-explaining — ever</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+<script>
+  function togglePhase(id) {
+    document.getElementById(id).classList.toggle('open');
+  }
+  function toggleLesson(el) {
+    el.classList.toggle('done');
+    updateProgress();
+  }
+  function updateProgress() {
+    const all = document.querySelectorAll('.lesson');
+    const done = document.querySelectorAll('.lesson.done');
+    const pct = Math.round((done.length / all.length) * 100);
+    document.getElementById('progressBar').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = pct + '% complete — ' + done.length + ' of ' + all.length + ' lessons done';
+  }
+</script>
+</body>
+</html>
