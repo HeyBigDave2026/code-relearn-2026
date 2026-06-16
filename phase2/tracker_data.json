@@ -1,0 +1,211 @@
+{
+  "title": "Dave's Coding Re-Learn Bootcamp",
+  "description": "A comprehensive course to re-learn coding after long break.",
+  "phases": {
+    "phase1": {
+      "name": "Environment & Mindset Reset",
+      "description": "Your dev command center",
+      "lessons": [
+        {
+          "title": "VS Code Setup",
+          "completed": true,
+          "completed_date": "05/03/2026"
+        },
+        {
+          "title": "Git Install",
+          "completed": true,
+          "completed_date": "05/03/2026"
+        },
+        {
+          "title": "GitHub Account",
+          "completed": true,
+          "completed_date": "05/03/2026"
+        },
+        {
+          "title": "Terminal Basics",
+          "completed": true,
+          "completed_date": "05/03/2026"
+        },
+        {
+          "title": "Python Install",
+          "completed": true,
+          "completed_date": "05/03/2026"
+        },
+        {
+          "title": "First Commit & Push",
+          "completed": true,
+          "completed_date": "05/03/2026"
+        },
+        {
+          "title": "Claude Project Setup",
+          "completed": true,
+          "completed_date": "05/03/2026"
+        }
+      ],
+      "milestone_project": "Your first repo on GitHub with a README. You understand the edit \u2192 stage \u2192 commit \u2192 push cycle cold."
+    },
+    "phase2": {
+      "name": "Python Fundamentals \u2014 Your New C",
+      "description": "Reactivating your CS brain",
+      "lessons": [
+        {
+          "title": "Variables & Types",
+          "completed": true,
+          "completed_date": "05/06/2026"
+        },
+        {
+          "title": "Functions",
+          "completed": true,
+          "completed_date": "05/08/2026"
+        },
+        {
+          "title": "Lists & Dicts",
+          "completed": true,
+          "completed_date": "05/17/2026"
+        },
+        {
+          "title": "Loops & Conditionals",
+          "completed": true,
+          "completed_date": "05/20/2026"
+        },
+        {
+          "title": "Classes & Objects",
+          "completed": true,
+          "completed_date": "05/22/2026"
+        },
+        {
+          "title": "File I/O",
+          "completed": true,
+          "completed_date": "06/01/2026"
+        },
+        {
+          "title": "pip & packages",
+          "completed": true,
+          "completed_date": "06/02/2026"
+        },
+        {
+          "title": "Error Handling",
+          "completed": true,
+          "completed_date": "06/05/2026"
+        }
+      ],
+      "milestone_project": "A working CLI progress tracker for this learning journey \u2014 your first real utility, written by you."
+    },
+    "phase3": {
+      "name": "The Web Layer \u2014 HTML, CSS & APIs",
+      "description": "Making things people can see",
+      "lessons": [
+        {
+          "title": "HTML Structure",
+          "completed": false,
+          "completed_date": null
+        },
+        {
+          "title": "CSS Basics",
+          "completed": false,
+          "completed_date": null
+        },
+        {
+          "title": "HTTP & Rest Concepts",
+          "completed": false,
+          "completed_date": null
+        },
+        {
+          "title": "Python Requests Lib",
+          "completed": false,
+          "completed_date": null
+        },
+        {
+          "title": "JSON Fluency",
+          "completed": false,
+          "completed_date": null
+        },
+        {
+          "title": "Flask Mini-app",
+          "completed": false,
+          "completed_date": null
+        },
+        {
+          "title": "Calling Public APIs",
+          "completed": false,
+          "completed_date": null
+        }
+      ],
+      "milestone_project": "A simple web page that fetches and displays live data from a real API \u2014 deployed and shareable via URL."
+    },
+    "phase4": {
+      "name": "AI Integration & the Claude API",
+      "description": "Where sales experience becomes a superpower",
+      "lessons": [
+        {
+          "title": "Anthropic Python SDK",
+          "completed": false,
+          "completed_date": null
+        },
+        {
+          "title": "Prompt Engineering",
+          "completed": false,
+          "completed_date": null
+        },
+        {
+          "title": "System Prompts",
+          "completed": false,
+          "completed_date": null
+        },
+        {
+          "title": "Multi-turn Conversations",
+          "completed": false,
+          "completed_date": null
+        },
+        {
+          "title": "Tool Use / Function Calling",
+          "completed": false,
+          "completed_date": null
+        },
+        {
+          "title": "Streaming Responses",
+          "completed": false,
+          "completed_date": null
+        }
+      ],
+      "milestone_project": "A custom AI-powered sales tool \u2014 prospect research assistant, call prep bot, or meeting summarizer."
+    },
+    "phase5": {
+      "name": "Claude Code, Agents & the Full Stack",
+      "description": "The sausage factory, fully visible",
+      "lessons": [
+        {
+          "title": "Claude Code CLI",
+          "completed": false,
+          "completed_date": null
+        },
+        {
+          "title": "Agent workflows",
+          "completed": false,
+          "completed_date": null
+        },
+        {
+          "title": "MCP Servers",
+          "completed": false,
+          "completed_date": null
+        },
+        {
+          "title": "Multi-agent Patterns",
+          "completed": false,
+          "completed_date": null
+        },
+        {
+          "title": "Git Branching & PRs",
+          "completed": false,
+          "completed_date": null
+        },
+        {
+          "title": "Deploy to Cloud",
+          "completed": false,
+          "completed_date": null
+        }
+      ],
+      "milestone_project": "An agent that automates a real sales workflow end-to-end: research \u2192 draft outreach \u2192 log to CRM."
+    }
+  }
+}
